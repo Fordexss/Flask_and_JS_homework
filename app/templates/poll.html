@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/add_question.css">
+    <title>Опитування</title>
+</head>
+<body>
+
+<form action="/poll" method="get">
+    {% for ques in data %}
+        {% if ques.question %}
+            <h1>{{ ques.question }}</h1>
+            {% set answers = ques.answers.split(',') %}
+            {% set index = loop.index %}
+            {% for answer in answers %}
+                <label>
+                    <input type="radio" name="field{{ index }}_{{ ques.question }}" value="{{ answer }}"> {{ answer }}
+                    <br>
+                    <br>
+                </label>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    <input type="hidden" name="numberOfQues" value="{{ number_of_ques }}">
+    <input type="submit" value="Проголосувати"/>
+</form>
+
+

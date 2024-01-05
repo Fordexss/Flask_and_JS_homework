@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add your Test</title>
+    <script src="../static/js/genNumberQues.js"></script>
+</head>
+<body>
+    <h1>Add your Test Question</h1>
+    <form method="post">
+        <label for="numberOfQuestions">Enter the number of questions you want to input</label>
+        <input onchange="generateQuestions()" name="numberOfQuestions" type="number" id="numberOfQuestions" min="1" value="1">
+        <div id="questionContainer"></div>
+        <button type="submit">Submit questions</button>
+    </form>
+</body>
+</html>
